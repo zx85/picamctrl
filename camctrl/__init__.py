@@ -1,6 +1,5 @@
 from flask import Flask
 import camcmds
-import checkdb
 import os
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine
