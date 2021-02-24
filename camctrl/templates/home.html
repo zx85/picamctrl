@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8'/>
+    <title>Control the camera</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@200,300,500,700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='control.js') }}"></script>
+  </head>
+  <body onLoad='doStuff();'>
+   <div class="grid-container">
+	 <div class="nav">
+	   <div class="circlebg" id="navbg">
+	      <div class="circle" id="navctl">
+	       <span id="navtimer"></span>
+           </div>
+		</div>
+    </div>
+	<div class="zooming">
+	 <div class="rectanglebg" id="zoombg">
+		 <div class="rectanglefg" >
+			 <div class="rectanglezoom" id="zoomctl">
+				&nbsp;
+			</div>
+		</div>
+      </div>
+     </div>
+        <div class="presets">
+           <div id="setbutton" class="griditem">
+	      <div class="button">
+               <img src="{{ url_for('static', filename='images/preset_button-240.png') }}" >
+	      </div>
+	      <div class="ptext">SET</div>
+	   </div>
+	<div id="p1" class="griditem">
+		<div class="button">
+		  <img src="{{ url_for('static', filename='images/button-100.png') }}" >
+		</div>
+		   <div class="ptext" id="p1text">1</div>
+	</div>
+	<div id="p4" class="griditem">
+	   <div class="button">
+	      <img src="{{ url_for('static', filename='images/button-100.png') }}" >
+	   </div>
+	   <div class="ptext" id="p4text">4</div>
+	</div>
+	<div id="p7" class="griditem">
+	   <div class="button">
+	      <img src="{{ url_for('static', filename='images/button-100.png') }}" >
+	   </div>
+	   <div class="ptext" id="p7text">7</div>
+	</div>
+	<div id="p2" class="griditem">
+	   <div class="button">
+	      <img src="{{ url_for('static', filename='images/button-100.png') }}" >
+	   </div>
+	   <div class="ptext" id="p2text">2</div>
+	</div>
+	<div id="p5" class="griditem">
+	   <div class="button">
+	      <img src="{{ url_for('static', filename='images/button-100.png') }}" >
+	   </div>
+	   <div class="ptext" id="p5text">5</div>
+	</div>
+	<div id="p8" class="griditem">
+	   <div class="button">
+	      <img src="{{ url_for('static', filename='images/button-100.png') }}" >
+	   </div>
+	   <div class="ptext" id="p8text">8</div>
+	</div>
+	<div id="p3" class="griditem">
+	   <div class="button">
+	      <img src="{{ url_for('static', filename='images/button-100.png') }}" >
+	   </div>
+	   <div class="ptext" id="p3text">3</div>
+	</div>
+	<div id="p6" class="griditem">
+	   <div class="button">
+	      <img src="{{ url_for('static', filename='images/button-100.png') }}" >
+	   </div>
+	   <div class="ptext" id="p6text">6</div>
+	</div>
+	<div id="p9" class="griditem">
+	   <div class="button">
+	      <img src="{{ url_for('static', filename='images/button-100.png') }}" >
+	   </div>
+	   <div class="ptext" id="p9text">9</div>   
+   </div>
+   </div>
+   <div class="navlogo"><span style="font-weight:700">Pan/Tilt:</span> hold to move<br/>
+	outer = faster<br/>
+	hold = longer
+	</div>
+	<div class="zoomlogo"><span style="font-weight:700">Zoom:</span> click to zoom<br/>
+	up = zoom in<br/>
+	down = zoom out</div>
+	<div class="presetlogo"><span style="font-weight:700">Preset:</span> select/set a preset<br/>
+	number = select<br/>
+	SET = set mode</div>
+   </div>
+  </body>
+</html>
+
