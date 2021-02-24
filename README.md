@@ -10,6 +10,7 @@ A project created so that I can control an RS485 camera using PELCO-D protocol f
 - pip (apt install python3-pip)
 - pyserial (pip3 install pyserial)
 - flask (pip3 install flask)
+- flask_SQLAlchemy (pip3 install flask_sqlalchemy)
 
 ## How to install
 
