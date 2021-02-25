@@ -27,11 +27,37 @@ function doStuff() {
   }
     new Clicker (document.getElementById("navctl"));
     new Clicker (document.getElementById("zoomctl"))
+  getPresets() 
+  presetTimer = setInterval(getPresets,5000);
 }
 
 // Writes something to the console
 function debug(message) {
   console.log(message);
+}
+
+
+// DB business
+function getPresets() {
+  var presetLabels = document.querySelectorAll('.plabel');
+    client = new HttpClient();
+    thisOutput=client.get(urlStub.concat('getpresets'), function(response) {
+    debug(response);
+    allPresets=response.split("|");
+    for (var i=0; i < allPresets.length-1; i++ ) {
+      thisPreset=allPresets[i].split(",");
+      presetId="p".concat(thisPreset[0]).concat("label");
+      presetLabel=thisPreset[1];
+//      debug("presetId is: ".concat(presetId))
+      document.getElementById(presetId).innerHTML=presetLabel;
+    }
+  });
+}
+ 
+
+function setPreset(preset,label){
+ //sanitise for y'know
+ //label.replace("|", " ");
 }
 
 // Colour business section then

@@ -17,4 +17,22 @@ db = SQLAlchemy(app)
 # Something about this I suspect
 # https://flask.palletsprojects.com/en/1.1.x/tutorial/database/#register-with-the-application
 
+
+class Presets(db.Model):
+        id = db.Column(db.Integer, primary_key=True)
+        Label = db.Column(db.String(20), unique=True, nullable=False)
+
+        def __repr__(self):
+            return ("Presets("+str(self.id)+", '"+str(self.Label)+"')")
+
+
+
+# if the DB isn't there create it
+if not os.path.isfile("camctrl/"+dbFilename) :
+    print ("Creating DB")
+    db.create_all()
+    for eachPreset in range(1, 10):
+        db.session.add(Presets(id=eachPreset,Label="Preset "+str(eachPreset)))
+    db.session.commit()
+
 from camctrl import routes

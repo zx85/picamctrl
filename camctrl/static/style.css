@@ -72,6 +72,15 @@
     transform: translate(-50%, -50%);
   }
 
+  .presetbutton > img {
+    width: 75%;
+    max-height: 75%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
 .griditem {
       position: relative;
       color: #cccccc;
@@ -95,6 +104,18 @@
       color: #cccccc;
       text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black; 
 }
+
+.plabel {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%,-75%);
+    font-family: 'Saira Extra Condensed', sans-serif;
+    font-weight:100;
+    font-size: 1em;
+    color: #666; 
+}
+
 
 .circle {
     position: absolute;

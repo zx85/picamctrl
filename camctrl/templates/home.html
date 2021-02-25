@@ -4,8 +4,9 @@
     <meta charset='UTF-8'/>
     <title>Control the camera</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@200,300,500,700&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100;200;300;500;700&display=swap" rel="stylesheet" type="text/css" href="styles.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@100&display=swap" rel="stylesheet" type="text/css" href="styles.css"> 
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
     <script type="text/javascript" src="{{ url_for('static', filename='control.js') }}"></script>
   </head>
   <body onLoad='doStuff();'>
@@ -26,10 +27,10 @@
 		</div>
       </div>
      </div>
-        <div class="presets">
+   <div class="presets">
            <div id="setbutton" class="griditem">
-	      <div class="button">
-               <img src="{{ url_for('static', filename='images/preset_button-240.png') }}" >
+	      <div class="presetbutton">
+               <img src="{{ url_for('static', filename='images/preset_button-250.png') }}" >
 	      </div>
 	      <div class="ptext">SET</div>
 	   </div>
@@ -38,66 +39,71 @@
 		  <img src="{{ url_for('static', filename='images/button-100.png') }}" >
 		</div>
 		   <div class="ptext" id="p1text">1</div>
-	</div>
+	       <span id="p1label" class="plabel"></span>
+		</div>
 	<div id="p4" class="griditem">
 	   <div class="button">
 	      <img src="{{ url_for('static', filename='images/button-100.png') }}" >
 	   </div>
 	   <div class="ptext" id="p4text">4</div>
+	   <span id="p4label" class="plabel"></span>
 	</div>
 	<div id="p7" class="griditem">
 	   <div class="button">
 	      <img src="{{ url_for('static', filename='images/button-100.png') }}" >
 	   </div>
 	   <div class="ptext" id="p7text">7</div>
+	   <span id="p7label" class="plabel"></span>
 	</div>
 	<div id="p2" class="griditem">
 	   <div class="button">
 	      <img src="{{ url_for('static', filename='images/button-100.png') }}" >
 	   </div>
 	   <div class="ptext" id="p2text">2</div>
+	   <span id="p2label" class="plabel"></span>
 	</div>
 	<div id="p5" class="griditem">
 	   <div class="button">
 	      <img src="{{ url_for('static', filename='images/button-100.png') }}" >
 	   </div>
 	   <div class="ptext" id="p5text">5</div>
+	   <span id="p5label" class="plabel"></span>
 	</div>
 	<div id="p8" class="griditem">
 	   <div class="button">
 	      <img src="{{ url_for('static', filename='images/button-100.png') }}" >
 	   </div>
 	   <div class="ptext" id="p8text">8</div>
+	   <span id="p8label" class="plabel"></span>
 	</div>
 	<div id="p3" class="griditem">
 	   <div class="button">
 	      <img src="{{ url_for('static', filename='images/button-100.png') }}" >
 	   </div>
 	   <div class="ptext" id="p3text">3</div>
+	   <span id="p3label" class="plabel"></span>
 	</div>
 	<div id="p6" class="griditem">
 	   <div class="button">
 	      <img src="{{ url_for('static', filename='images/button-100.png') }}" >
 	   </div>
 	   <div class="ptext" id="p6text">6</div>
+       <span id="p6label" class="plabel"></span>
 	</div>
 	<div id="p9" class="griditem">
 	   <div class="button">
 	      <img src="{{ url_for('static', filename='images/button-100.png') }}" >
 	   </div>
 	   <div class="ptext" id="p9text">9</div>   
-   </div>
+       <span id="p9label" class="plabel"></span>
+	</div>
    </div>
    <div class="navlogo"><span style="font-weight:700">Pan/Tilt:</span> hold to move<br/>
-	outer = faster<br/>
-	hold = longer
+	outer = faster • hold = longer
 	</div>
 	<div class="zoomlogo"><span style="font-weight:700">Zoom:</span> click to zoom<br/>
-	up = zoom in<br/>
-	down = zoom out</div>
-	<div class="presetlogo"><span style="font-weight:700">Preset:</span> select/set a preset<br/>
-	number = select<br/>
-	SET = set mode</div>
+	up = zoom in • down = zoom out</div>
+	<div class="presetlogo"><span style="font-weight:500">Preset </span><span id="presetLabel"></span></div>
    </div>
   </body>
 </html>
