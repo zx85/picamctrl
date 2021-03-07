@@ -62,6 +62,14 @@
 #p8 { grid-area: p8; }
 #p9 { grid-area: p9; }
 
+#presetlabel {
+    font-weight:500;
+    border-color: #777;
+    border-style: transparent;
+    padding: 5px;
+    border-width: 2px;
+}
+
 .button > img {
     object-fit: cover;
     width: 75%;

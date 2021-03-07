@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8'/>
+    <title>Preset Gubbins</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100;200;300;500;700&display=swap" rel="stylesheet" type="text/css" href="styles.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@100;500&display=swap" rel="stylesheet" type="text/css" href="styles.css"> 
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='obs.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='control-obs.js') }}"></script>
+  </head>
+  <body onLoad='doStuff();'>
+    <div class="grid-container">
+        <div id="p1" class="griditem">
+               <span id="p1label" class="plabel">one</span>
+        </div>
+        <div id="p2" class="griditem">
+            <span id="p2label" class="plabel">two</span>
+        </div>
+        <div id="p3" class="griditem">
+            <span id="p3label" class="plabel">three</span>
+        </div>
+        <div id="p4" class="griditem">
+            <span id="p4label" class="plabel">four</span>
+        </div>
+    </div>
+  </body>
+</html>
+

@@ -42,7 +42,7 @@ function getPresets() {
   var presetLabels = document.querySelectorAll('.plabel');
     client = new HttpClient();
     thisOutput=client.get(urlStub.concat('getpresets'), function(response) {
-    debug(response);
+//   debug(response);
     allPresets=response.split("|");
     for (var i=0; i < allPresets.length-1; i++ ) {
       thisPreset=allPresets[i].split(",");
@@ -216,33 +216,65 @@ function holdTime() {
   }
 }
 
+// Shim for selecting texting
+function selectText(node) {
+  if (document.body.createTextRange) {
+      const range = document.body.createTextRange();
+      range.moveToElementText(node);
+      range.select();
+  } else if (window.getSelection) {
+    console.log("Well the selectText getSelection");
+      const selection = window.getSelection();
+      const range = document.createRange();
+      range.selectNodeContents(node);
+      selection.removeAllRanges();
+      selection.addRange(range);
+  } else {
+      console.warn("Could not select text in node: Unsupported browser.");
+  }
+}
+
 // Preset functions here
 // ========================
 
 //    The particular thing to do for the SET button
 function doSetPreset (thisElement) {
+//  Set the text to a standard name
+//  What's the set button's current style
     thisElem=document.querySelector('.ptext');
     thisStyle = getComputedStyle(thisElem)
     //var thisColour=window.getComputedStyle(thisElem).style.color;
     thisColour=colourToHex(thisStyle.color);
-    
-    var griditems = document.querySelectorAll('.ptext');
+    // Change the preset buttons to yellow
     if (thisColour=="#cccccc") {
       thisColour="#ffff00";
+      // make the preset text editable
+      thisLabel=document.getElementById("presetlabel");
+      thisLabel.innerHTML= "Preset Name";
+      thisLabel.style.border="2px solid #777";
+      thisLabel.contentEditable = "true";
+      selectText(thisLabel);
     }
     else{ 
       thisColour="#cccccc";
+      // make the preset text not ediable any more
+      thisLabel=document.getElementById("presetlabel")
+      thisLabel.innerHTML= "";
+      thisLabel.style.border="0px";
+      thisLabel.contentEditable = "false";
     }
+    var griditems = document.querySelectorAll('.ptext');
     for (var i = 0; i < griditems.length; i++) {
       //debug(i);
       //debug("changing preset colour to: ".concat(thisColour));
       griditems[i].style.color = thisColour;
-    }
+    } 
 }
 
 //    The particular thing to do for the presets themselves      
 function doPreset(thisElement) {
-  textItem=thisElement.id.concat("text")
+  textItem=thisElement.id.concat("text");
+  labelItem=thisElement.id.concat("label");
   //debug(getComputedStyle(document.getElementById(textItem)).color);
   if (colourToHex(getComputedStyle(document.getElementById(textItem)).color)!="#cccccc") {
     debug("Set preset: ".concat(thisElement.id));
@@ -253,9 +285,14 @@ function doPreset(thisElement) {
     //debug("changing preset colour to: ".concat(thisColour));
     griditems[i].style.color = thisColour;
   }
+  presetLabel=document.getElementById("presetlabel").innerHTML;
+  document.getElementById(labelItem).innerHTML=presetLabel;
   client = new HttpClient();
+  client.get(urlStub.concat("setpreset?preset=").concat(thisElement.id.substring(1)).concat("&label=").concat(presetLabel), function(response) { });
   client.get(urlStub.concat("camcmd?cmd=setpreset&val1=0&val2=").concat(thisElement.id.substring(1)), function(response) { });
-  
+  document.getElementById("presetlabel").innerHTML=""; 
+  thisLabel.style.border="0px";
+  thisLabel.contentEditable = "false"; 
   }
   else {
     debug("Go to preset: ".concat(thisElement.id));

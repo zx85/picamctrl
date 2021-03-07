@@ -7,6 +7,10 @@ import camcmds
 def home():
     return render_template('home.html')
 
+@app.route("/obs")
+def obs():
+    return render_template('obs.html')
+
 @app.route("/camcmd")
 def camcmd():
     cmd= request.args.get('cmd', 'stop')
