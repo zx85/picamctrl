@@ -54,12 +54,6 @@ function getPresets() {
   });
 }
  
-
-function setPreset(preset,label){
- //sanitise for y'know
- //label.replace("|", " ");
-}
-
 // Colour business section then
 // ============================
 
@@ -288,8 +282,7 @@ function doPreset(thisElement) {
   presetLabel=document.getElementById("presetlabel").innerHTML;
   document.getElementById(labelItem).innerHTML=presetLabel;
   client = new HttpClient();
-  client.get(urlStub.concat("setpreset?preset=").concat(thisElement.id.substring(1)).concat("&label=").concat(presetLabel), function(response) { });
-  client.get(urlStub.concat("camcmd?cmd=setpreset&val1=0&val2=").concat(thisElement.id.substring(1)), function(response) { });
+  client.get(urlStub.concat("set/").concat(thisElement.id.substring(1)).concat("/").concat(presetLabel), function(response) { });
   document.getElementById("presetlabel").innerHTML=""; 
   thisLabel.style.border="0px";
   thisLabel.contentEditable = "false"; 
@@ -297,7 +290,7 @@ function doPreset(thisElement) {
   else {
     debug("Go to preset: ".concat(thisElement.id));
     client = new HttpClient();
-    client.get(urlStub.concat("camcmd?cmd=callpreset&val1=0&val2=").concat(thisElement.id.substring(1)), function(response) { });
+    client.get(urlStub.concat("call/").concat(thisElement.id.substring(1)), function(response) { });
   }
 }
 
@@ -355,7 +348,7 @@ function doNavCtlm(thisElement) {
   }
   duration=Math.floor(holdValue/maxHoldValue*maxMoveTime)
   client = new HttpClient();
-  client.get(urlStub.concat("camcmd?cmd=").concat(command).concat("&val1=").concat(String(lrValue)).concat("&val2=").concat(String(udValue)).concat("&duration=").concat(duration), function(response) { });
+  client.get(urlStub.concat("camcmd/").concat(command).concat("/").concat(String(lrValue)).concat("/").concat(String(udValue)).concat("/").concat(duration), function(response) { });
 }
 
 // The touch has been released - do the navigation
@@ -397,7 +390,7 @@ function doNavCtlt(thisElement) {
   }
   duration=Math.floor(holdValue/maxHoldValue*maxMoveTime)
   client = new HttpClient();
-  client.get(urlStub.concat("camcmd?cmd=").concat(command).concat("&val1=").concat(String(lrValue)).concat("&val2=").concat(String(udValue)).concat("&duration=").concat(duration), function(response) { });
+  client.get(urlStub.concat("camcmd/").concat(command).concat("/").concat(String(lrValue)).concat("/").concat(String(udValue)).concat("/").concat(duration), function(response) { });
 }
 
 
@@ -415,7 +408,7 @@ function doZoomCtlm(thisElement) {
     command="zoomin";
   }
   client = new HttpClient();
-  client.get(urlStub.concat("camcmd?cmd=").concat(command).concat("&val1=0&val2=0&duration=").concat(Math.abs(zoomLevel)), function(response) { });
+  client.get(urlStub.concat("camcmd/").concat(command).concat("/0/0/").concat(Math.abs(zoomLevel)), function(response) { });
 }
 
 function doZoomCtlt(thisElement) {
@@ -433,7 +426,7 @@ function doZoomCtlt(thisElement) {
     command="zoomin";
   }
   client = new HttpClient();
-  client.get(urlStub.concat("camcmd?cmd=").concat(command).concat("&val1=0&val2=0&duration=").concat(Math.abs(zoomLevel)), function(response) { });
+  client.get(urlStub.concat("camcmd/").concat(command).concat("/0/0/").concat(Math.abs(zoomLevel)), function(response) { });
 }
 
 

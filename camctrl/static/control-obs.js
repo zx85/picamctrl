@@ -90,7 +90,7 @@ function doPreset(thisElement) {
   //debug(getComputedStyle(document.getElementById(textItem)).color);
     debug("Go to preset: ".concat(thisElement.id));
     client = new HttpClient();
-    client.get(urlStub.concat("camcmd?cmd=callpreset&val1=0&val2=").concat(thisElement.id.substring(1)), function(response) { });
+    client.get(urlStub.concat("call/").concat(thisElement.id.substring(1)), function(response) { });
 }
 
 function doAction(thisElement,thisFormat) {
