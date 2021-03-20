@@ -13,6 +13,8 @@
 .nav { 
     grid-area: nav;
     margin: 25px;
+    border-width: 10px;
+    border-color: #333;
     }
 .zooming { grid-area: zooming; 
 }
@@ -52,7 +54,7 @@
     grid-area: presets;
 }
 
-#setbutton { grid-area: setbutton; }
+#setbutton { grid-area: setbutton;}
 #p1 { grid-area: p1; }
 #p2 { grid-area: p2; }
 #p3 { grid-area: p3; }

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8'/>
+    <title>Preset Gubbins</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100;200;300;500;700&display=swap" rel="stylesheet" type="text/css" href="styles.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@100;500&display=swap" rel="stylesheet" type="text/css" href="styles.css"> 
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='setup.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='control-setup.js') }}"></script>
+  </head>
+  <body onLoad='doStuff();'>
+    <div class="grid-container">
+        <div class="nav">
+            <div id="x1" >
+                <span>&nbsp;</span>
+            </div>
+            <div id="x2" >
+                <span>&nbsp;</span>
+            </div>
+            <div id="x3" >
+                <span>&nbsp;</span>
+            </div>
+            <div id="x4" >
+                <span>&nbsp;</span>
+            </div>
+            <div id="up" class="griditem">
+                <span id="upbutton" class="button">up</span>
+            </div>
+            <div id="down" class="griditem">
+                <span id="dobtn" class="button">down</span>
+            </div>
+            <div id="left" class="griditem">
+                <span id="lebtn" class="button">left</span>
+            </div>
+            <div id="right" class="griditem">
+                <span id="ribtn" class="button">right</span>
+            </div>
+            <div id="stop" class="griditem">
+                <span id="stbtn" class="button">stop</span>
+            </div>
+        </div>
+        <div class="other">
+            <div class="controls">
+                <div id="zoomin" class="griditem">
+                    <span id="zibtn" class="button">z+</span>
+                </div>
+                <div id="zoomout" class="griditem">
+                    <span id="zobtn" class="button">z-</span>
+                </div>
+                <div id="focusin" class="griditem">
+                    <span id="fibtn" class="button">f+</span>
+                </div>
+                <div id="focusout" class="griditem">
+                    <span id="fobtn" class="button">f-</span>
+                </div>
+                <div id="irisopen" class="griditem">
+                    <span id="iobtn" class="button">i+</span>
+                </div>
+                <div id="irisclosed" class="griditem">
+                    <span id="icbtn" class="button">i-</span>
+                </div>
+                <div id="zoomlabel" class="gridlabel">
+                    <span id="zmlbl" class="plabel">zoom</span>
+                </div>
+                <div id="focuslabel" class="gridlabel">
+                    <span id="folbl" class="plabel">focus</span>
+                </div>
+                <div id="irislabel" class="gridlabel">
+                    <span id="irlbl" class="plabel">iris</span>
+                </div>
+            </div>
+            <div class="presets">
+                <div id="presetnum" class="gridlabel">
+                    <span id="presettext" class="ptext" contenteditable="true"></span>
+                </div>
+                <div id="callpreset" class="griditem">
+                    <span id="pcbtn" class="button">call</span>
+                </div>
+                <div id="setpreset" class="griditem">
+                    <span id="psbtn" class="button">set</span>
+                </div>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>

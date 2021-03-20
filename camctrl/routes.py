@@ -11,6 +11,10 @@ def home():
 def obs():
     return render_template('obs.html')
 
+@app.route("/setup")
+def setup():
+    return render_template('setup.html')
+
 @app.route("/camcmd/<cmd>/<val1>/<val2>/<duration>")
 def camcmd(cmd="stop",val1="0",val2="0",duration="0"):
     camcmds.send_cmd(cmd,int(val1),int(val2),int(duration))

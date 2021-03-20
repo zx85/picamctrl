@@ -24,6 +24,8 @@ def switch_cmd(argument):
         "zoomin": (0,32),
         "focusout": (0,128),
         "focusin": (1,0),
+        "irisopen": (2,0),
+        "irisclose": (4,0),
         "setpreset": (0,3),
         "clearpreset": (0,5),
         "callpreset": (0,7)
