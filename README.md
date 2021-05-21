@@ -5,7 +5,7 @@ A project created so that I can control an RS485 camera using PELCO-D protocol f
 ## What you'll need
 
 - A Raspberry Pi (old as you like, as long as it has a 40 pin GPIO)
-- An RS485 HAT. I Spent a whole £12 on this: https://thepihut.com/products/rs485-pizero by [AB Electronics](https://www.abelectronics.co.uk/p/77/rs485-pi)
+- An RS485 HAT. I spent a whole £12 on this: https://thepihut.com/products/rs485-pizero by [AB Electronics](https://www.abelectronics.co.uk/p/77/rs485-pi)
 - Python3     (should be there already)
 - pip (apt install python3-pip)
 - pyserial (pip3 install pyserial)
