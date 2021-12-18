@@ -1,7 +1,7 @@
 const duration=200
 const snapPercent=10;
 
-var urlStub='http://192.168.75.96:5000/';
+var urlStub='/';
 
 // This gets everything going on body load
 function doStuff() {

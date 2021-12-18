@@ -8,7 +8,7 @@ const maxZoomTime=2000;
 const maxSpeed=75;
 const snapPercent=10;
 
-var urlStub='http://192.168.75.96:5000/';
+var urlStub='/';
 var holdTimer;
 var holdValue=0;
 //var selectedItem="navtimer";

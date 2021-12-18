@@ -40,7 +40,7 @@ def do_hex(hexlist):
 
 def assemble_cmd(cmd,val1,val2):
     header=0xff
-    channel=0x01
+    channel=0x00
     byte1,byte2=switch_cmd(cmd)
     checksum=(header+channel+byte1+byte2+val1+val2)%256
     return do_hex([header,channel,byte1,byte2,val1,val2,checksum])
@@ -51,7 +51,7 @@ def stop():
 def send_cmd(cmd,val1,val2,duration):
     cmd_string=assemble_cmd(cmd,val1,val2)
 #    ser=serial.rs485.RS485(port='/dev/serial0',baudrate=2400,parity=serial.PARITY_NONE,stopbits=serial.STOPBITS_ONE,bytesize=serial.EIGHTBITS)
-    ser=serial.Serial(port='/dev/serial0',baudrate=2400,parity=serial.PARITY_NONE,stopbits=serial.STOPBITS_ONE,bytesize=serial.EIGHTBITS)
+    ser=serial.Serial(port='/dev/serial0',baudrate=9600,parity=serial.PARITY_NONE,stopbits=serial.STOPBITS_ONE,bytesize=serial.EIGHTBITS)
 #    ser=serial.rs485.RS485(port='/dev/ttyAMA0',baudrate=2400,parity=serial.PARITY_NONE,stopbits=serial.STOPBITS_ONE,bytesize=serial.EIGHTBITS)
 #    ser.rs485_mode = serial.rs485.RS485Settings(False,True)
 
